@@ -39,6 +39,7 @@ def salvar_medicamentos(medicamentos):
         arquivo.write(linha)
 
     arquivo.close()
+
     # Cadastra um novo medicamento
 def cadastrar_medicamento(medicamentos):
     print("\n--- CADASTRAR MEDICAMENTO ---")
@@ -58,6 +59,23 @@ def cadastrar_medicamento(medicamentos):
     print("Medicamento cadastrado com sucesso!")
 
     return medicamentos
+
+# Lista todos os medicamentos
+def listar_medicamentos(medicamentos):
+    print("\n--- LISTA DE MEDICAMENTOS ---")
+
+    if len(medicamentos) == 0:
+        print("Nenhum medicamento cadastrado.")
+    else:
+        numero = 1
+
+        for medicamento in medicamentos:
+            print("\nMedicamento", numero)
+            print("Nome:", medicamento["nome"])
+            print("Categoria:", medicamento["categoria"])
+            print("Quantidade:", medicamento["quantidade"])
+
+            numero = numero + 1
 
 
 
