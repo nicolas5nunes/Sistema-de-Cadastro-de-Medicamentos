@@ -34,6 +34,5 @@ python main.py
 * `medicamentos.txt` — armazenamento dos medicamentos
 * `README.md` — documentação
 
-## Autor
 
-Projeto individual de Python.
+
