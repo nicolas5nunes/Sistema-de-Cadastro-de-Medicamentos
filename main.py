@@ -24,6 +24,7 @@ def carregar_medicamentos():
     arquivo.close()
 
     return medicamentos
+
 # Salva todos os medicamentos no arquivo
 def salvar_medicamentos(medicamentos):
     arquivo = open(ARQUIVO, "w", encoding="utf-8")
@@ -38,6 +39,26 @@ def salvar_medicamentos(medicamentos):
         arquivo.write(linha)
 
     arquivo.close()
+    # Cadastra um novo medicamento
+def cadastrar_medicamento(medicamentos):
+    print("\n--- CADASTRAR MEDICAMENTO ---")
+
+    nome = input("Nome do medicamento: ")
+    categoria = input("Categoria: ")
+    quantidade = int(input("Quantidade em estoque: "))
+
+    medicamento = {
+        "nome": nome,
+        "categoria": categoria,
+        "quantidade": quantidade
+    }
+
+    medicamentos.append(medicamento)
+
+    print("Medicamento cadastrado com sucesso!")
+
+    return medicamentos
+
 
 
 
