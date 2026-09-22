@@ -60,7 +60,7 @@ def cadastrar_medicamento(medicamentos):
 
     return medicamentos
 
-# Lista todos os medicamentos
+# Listar todos os medicamentos
 def listar_medicamentos(medicamentos):
     print("\n--- LISTA DE MEDICAMENTOS ---")
 
@@ -76,6 +76,71 @@ def listar_medicamentos(medicamentos):
             print("Quantidade:", medicamento["quantidade"])
 
             numero = numero + 1
+
+
+# Busca um medicamento pelo nome
+def buscar_medicamento(medicamentos, nome_busca):
+    resultado = []
+
+    for medicamento in medicamentos:
+        if medicamento["nome"].lower() == nome_busca.lower():
+            resultado.append(medicamento)
+
+    return resultado
+
+# Programa principal
+def main():
+    medicamentos = carregar_medicamentos()
+
+    while True:
+        print("\n==============================")
+        print(" SISTEMA DE MEDICAMENTOS")
+        print("==============================")
+        print("1 - Cadastrar medicamento")
+        print("2 - Listar medicamentos")
+        print("3 - Buscar medicamento")
+        print("4 - Sair")
+
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "1":
+            medicamentos = cadastrar_medicamento(medicamentos)
+
+        elif opcao == "2":
+            listar_medicamentos(medicamentos)
+
+        elif opcao == "3":
+            nome = input("Digite o nome do medicamento: ")
+
+            resultado = buscar_medicamento(medicamentos, nome)
+
+            if len(resultado) == 0:
+                print("Medicamento não encontrado.")
+            else:
+                print("\n--- MEDICAMENTO ENCONTRADO ---")
+
+                for medicamento in resultado:
+                    print("Nome:", medicamento["nome"])
+                    print("Categoria:", medicamento["categoria"])
+                    print("Quantidade:", medicamento["quantidade"])
+
+        elif opcao == "4":
+            salvar_medicamentos(medicamentos)
+
+            print("Dados salvos com sucesso.")
+            print("Programa encerrado.")
+
+            break
+
+        else:
+            print("Opção inválida. Escolha uma opção de 1 a 4.")
+
+
+main()
+
+
+
+    
 
 
 
